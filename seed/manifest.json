@@ -1,0 +1,20 @@
+{
+  "_about": "Demo family for the 'Family set up' start state (the prototype's Rose Whitman). The server seeds from this file and serves the images at /seed/<file>. Every image must be properly licensed; see CREDITS.md.",
+  "profile": { "key": "rose", "file": "rose.jpg", "caption": "Rose" },
+  "photos": [
+    { "key": "lily-1", "file": "lily-1.jpg", "caption": "Lily, age 8", "people": ["Lily"] },
+    { "key": "lily-2", "file": "lily-2.jpg", "caption": "Lily in the autumn leaves", "people": ["Lily"] },
+    { "key": "lily-3", "file": "lily-3.jpg", "caption": "Lily at the beach", "people": ["Lily"] },
+    { "key": "lily-4", "file": "lily-4.jpg", "caption": "Lily dyeing Easter eggs", "people": ["Lily"] },
+    { "key": "sam-1", "file": "sam-1.jpg", "caption": "Sam, age 12", "people": ["Sam"] },
+    { "key": "sam-2", "file": "sam-2.jpg", "caption": "Sam at summer camp", "people": ["Sam"] },
+    { "key": "sam-3", "file": "sam-3.jpg", "caption": "Sam at the lake", "people": ["Sam"] },
+    { "key": "anna-1", "file": "anna-1.jpg", "caption": "Anna, Christmas 2024", "people": ["Anna"] },
+    { "key": "anna-2", "file": "anna-2.jpg", "caption": "Anna by the Christmas tree", "people": ["Anna"] },
+    { "key": "walter-1", "file": "walter-1.jpg", "caption": "Walter at the lake", "people": ["Walter"] },
+    { "key": "walter-2", "file": "walter-2.jpg", "caption": "Walter with the new puppy, 1974", "people": ["Walter"] },
+    { "key": "wedding-1969", "file": "wedding-1969.jpg", "caption": "June 14, 1969", "people": ["Walter", "Rose"], "takenAt": "1969-06-14", "place": "St. Mary’s, Portland" },
+    { "key": "cabin-1974", "file": "cabin-1974.jpg", "caption": "Sebago Lake, 1974", "people": [], "takenAt": "1974-07", "place": "Sebago Lake, Maine" },
+    { "key": "thanksgiving-2025", "file": "thanksgiving-2025.jpg", "caption": "Thanksgiving, 2025", "people": ["Anna", "David", "Lily", "Sam", "Rose"], "takenAt": "2025-11-27", "place": "Anna’s house" }
+  ]
+}

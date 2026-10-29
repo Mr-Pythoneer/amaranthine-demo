@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Amaranthine lotus, redrawn from the original mark in the "Sunny Album" palette.
+       Layers go back to front; every petal shares the navy ink outline. -->
+  <g stroke="#1F2A44" stroke-width="11" stroke-linejoin="round" stroke-linecap="round">
+    <!-- back row -->
+    <path fill="#F2BA40" d="M146 122 C214 138 252 200 248 292 C178 280 134 214 146 122 Z"/>
+    <path fill="#F2BA40" d="M366 122 C298 138 260 200 264 292 C334 280 378 214 366 122 Z"/>
+    <path fill="#F7D27A" d="M256 72 C314 132 326 220 256 296 C186 220 198 132 256 72 Z"/>
+    <!-- middle row -->
+    <path fill="#E25C48" d="M64 214 C146 206 214 250 240 318 C162 336 92 292 64 214 Z"/>
+    <path fill="#E25C48" d="M448 214 C366 206 298 250 272 318 C350 336 420 292 448 214 Z"/>
+    <!-- low outer petals, like the leaves resting on water -->
+    <path fill="#6CB0D6" d="M50 300 C118 284 196 314 224 352 C150 378 82 356 50 300 Z"/>
+    <path fill="#6CB0D6" d="M462 300 C394 284 316 314 288 352 C362 378 430 356 462 300 Z"/>
+    <!-- bud -->
+    <path fill="#8F2A1E" d="M256 184 C298 228 304 298 256 360 C208 298 214 228 256 184 Z"/>
+    <!-- front petals cupping the bud -->
+    <path fill="#C73E2E" d="M256 410 C182 404 136 332 152 222 C214 250 252 316 256 410 Z"/>
+    <path fill="#C73E2E" d="M256 410 C330 404 376 332 360 222 C298 250 260 316 256 410 Z"/>
+  </g>
+  <!-- soft highlights down the middle of the front petals -->
+  <g fill="none" stroke="#FFFAF0" stroke-opacity="0.42" stroke-width="7" stroke-linecap="round">
+    <path d="M176 262 C196 300 222 336 238 378"/>
+    <path d="M336 262 C316 300 290 336 274 378"/>
+    <path d="M256 112 C261 134 262 152 259 168"/>
+  </g>
+</svg>

@@ -1,0 +1,571 @@
+/* Amaranthine landing page. Palette from src/theme/tokens.ts ("Sunny Album"). */
+
+:root {
+  --page: #FCF0CF;
+  --print: #FFFDF6;
+  --ink: #1F2A44;
+  --ink-soft: #4B5470;
+  --tomato: #C73E2E;
+  --tomato-edge: #8F2A1E;
+  --on-tomato: #FFFAF0;
+  --sky: #CFE7F4;
+  --sky-page: #D6EBF6;
+  --sky-ink: #173A5C;
+  --border-warm: #F0C9A0;
+  --pulse: #F6DB94;
+  --fam-bg: #F7F3EA;
+  --bezel: #161B26;
+  --bezel-rim: #2E3648;
+
+  --serif: "Newsreader", Georgia, "Times New Roman", serif;
+  --sans: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --gutter: 16px;
+  --side-w: 380px;
+  --col-gap: 56px;
+  --phone-gap: 28px;
+
+  /* Phone frame: a 390 x 844 screen inside a 12px bezel. JS sets --s. */
+  --frame-w: 414px;
+  --frame-h: 868px;
+  --s: 0.8;
+
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  line-height: 1.5;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+img, svg { display: block; }
+
+h1, h2, p, ol, figure { margin: 0; }
+
+strong { font-weight: 600; }
+
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip {
+  position: absolute;
+  left: var(--gutter);
+  top: -100px;
+  z-index: 10;
+  padding: 10px 14px;
+  background: var(--ink);
+  color: var(--page);
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.skip:focus { top: 12px; }
+
+main {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 24px var(--gutter) 0;
+}
+
+/* ---------- Intro ---------- */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand img { width: 44px; height: 44px; }
+.wordmark {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+h1 {
+  margin-top: 22px;
+  font-weight: 500;
+  font-size: clamp(1.75rem, 1.2rem + 1.8vw, 2.25rem);
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+  max-width: 22ch;
+  text-wrap: balance;
+}
+
+.lede {
+  margin-top: 14px;
+  max-width: 40em;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+/* ---------- Controls ---------- */
+
+.controls {
+  margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1.5px solid rgba(31, 42, 68, 0.14);
+}
+
+.controls-title {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--ink);
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.btn {
+  appearance: none;
+  min-height: 46px;
+  padding: 0 18px;
+  border-radius: 12px;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 160ms ease-out, background-color 160ms ease-out;
+}
+.btn:disabled,
+.btn[aria-disabled="true"] { cursor: default; opacity: 0.55; }
+
+.btn-primary {
+  background: var(--tomato);
+  color: var(--on-tomato);
+  border: 0;
+  border-bottom: 3px solid var(--tomato-edge);
+}
+.btn-primary:not(:disabled):not([aria-disabled="true"]):hover { background: #B83728; }
+.btn-primary:not(:disabled):not([aria-disabled="true"]):active { transform: translateY(2px); border-bottom-width: 1px; }
+
+.btn-quiet {
+  background: var(--print);
+  color: var(--ink);
+  border: 1.5px solid rgba(31, 42, 68, 0.45);
+}
+.btn-quiet:not(:disabled):not([aria-disabled="true"]):hover { border-color: var(--ink); }
+.btn-quiet:not(:disabled):not([aria-disabled="true"]):active { transform: translateY(1px); }
+
+.hint,
+.privacy,
+.status {
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+.hint { margin-top: 12px; max-width: 36em; }
+.hint strong { color: var(--ink); font-weight: 600; }
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 1.45em;
+  margin-top: 10px;
+  color: var(--ink);
+}
+.status[hidden] { display: none; }
+.status .dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--tomato);
+  visibility: hidden;
+}
+.status.is-busy .dot {
+  visibility: visible;
+  animation: breathe 1.8s ease-in-out infinite;
+}
+.status.is-done .dot { visibility: visible; background: #3F7FA8; }
+
+.privacy {
+  margin-top: 10px;
+  padding-left: 12px;
+  border-left: 3px solid #6CB0D6;
+  max-width: 34em;
+}
+
+@keyframes breathe {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* ---------- Stage and phones ---------- */
+
+.stage { margin-top: 28px; min-width: 0; outline: none; }
+
+.stage-problem {
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  max-width: 34em;
+  background: var(--print);
+  border: 1.5px solid var(--border-warm);
+  border-radius: 12px;
+  font-family: var(--sans);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.switch {
+  display: inline-flex;
+  padding: 4px;
+  margin-bottom: 16px;
+  background: rgba(31, 42, 68, 0.07);
+  border-radius: 14px;
+}
+.switch-btn {
+  appearance: none;
+  min-height: 44px;
+  min-width: 128px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--ink-soft);
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.switch-btn span { font-weight: 400; font-size: 0.8125rem; margin-left: 4px; }
+.switch-btn[aria-pressed="true"] {
+  background: var(--print);
+  color: var(--ink);
+  box-shadow: 0 0 0 1px rgba(31, 42, 68, 0.14);
+}
+
+.phones {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--phone-gap);
+}
+
+.device {
+  flex: none;
+  width: calc(var(--frame-w) * var(--s));
+}
+
+/* The slot takes up the scaled size; the phone inside is drawn at full size and scaled. */
+.slot {
+  position: relative;
+  width: calc(var(--frame-w) * var(--s));
+  height: calc(var(--frame-h) * var(--s));
+}
+
+.phone {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: var(--frame-w);
+  height: var(--frame-h);
+  padding: 12px;
+  border-radius: 60px;
+  background: var(--bezel);
+  box-shadow:
+    inset 0 0 0 2px var(--bezel-rim),
+    0 22px 44px -26px rgba(31, 42, 68, 0.55);
+  transform: scale(var(--s));
+  transform-origin: 0 0;
+}
+
+.screen {
+  position: relative;
+  width: 390px;
+  height: 844px;
+  border-radius: 48px;
+  overflow: hidden;
+  clip-path: inset(0 round 48px);
+  background: var(--page);
+}
+.screen-family { background: var(--fam-bg); }
+
+.screen iframe {
+  position: absolute;
+  inset: 0;
+  width: 390px;
+  height: 844px;
+  border: 0;
+  display: block;
+  background: transparent;
+  opacity: 0;
+  transition: opacity 400ms ease-out;
+}
+.screen.is-live iframe { opacity: 1; }
+
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 18px;
+  padding: 0 36px 80px;
+  transition: opacity 400ms ease-out;
+}
+.screen.is-live .placeholder { opacity: 0; visibility: hidden; }
+.placeholder img { width: 64px; height: 64px; }
+.placeholder-text {
+  font-family: var(--serif);
+  font-size: 26px;
+  line-height: 1.3;
+  color: var(--ink);
+  max-width: 13em;
+}
+.screen-family .placeholder-text { font-family: var(--sans); font-size: 20px; color: var(--ink-soft); }
+
+/* The slow butter pulse the app uses while loading, never a spinner. */
+.screen.is-waiting .placeholder::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--pulse);
+  animation: pulse 2.2s ease-in-out infinite;
+}
+.screen.is-waiting .placeholder { z-index: 0; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 0; }
+  50% { opacity: 0.55; }
+}
+
+.screen.is-failed .placeholder img { opacity: 0.45; }
+
+figcaption {
+  margin-top: 14px;
+  padding-right: 4px;
+}
+.device-name {
+  display: block;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.9375rem;
+  line-height: 1.35;
+  color: var(--ink);
+}
+.device-note {
+  display: block;
+  margin-top: 3px;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+/* ---------- Things to try ---------- */
+
+.tries { margin-top: 48px; }
+
+.tries h2,
+.prose h2 {
+  font-weight: 500;
+  font-size: 1.75rem;
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+}
+
+.taped { position: relative; display: inline-block; }
+.taped .tape {
+  position: absolute;
+  z-index: -1;
+  left: -10px;
+  top: 50%;
+  width: calc(100% + 18px);
+  height: 26px;
+  transform: translateY(-38%) rotate(-3deg);
+}
+.tries h2 { position: relative; z-index: 0; isolation: isolate; }
+
+.steps {
+  list-style: none;
+  counter-reset: step;
+  padding: 0;
+  margin-top: 20px;
+  max-width: 36em;
+}
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 40px;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+.steps li + li { margin-top: 18px; }
+.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0;
+  top: -1px;
+  width: 26px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: var(--tomato-edge);
+}
+.where {
+  display: block;
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.tries-note {
+  margin-top: 22px;
+  max-width: 36em;
+  padding-left: 40px;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- Prose sections ---------- */
+
+.prose {
+  margin-top: 72px;
+  padding-top: 28px;
+  border-top: 1.5px solid rgba(31, 42, 68, 0.14);
+}
+.prose-body { margin-top: 18px; max-width: 38em; }
+.prose-body p + p { margin-top: 14px; }
+.prose-body p { font-size: 1.0625rem; line-height: 1.6; }
+
+.note {
+  padding: 20px 22px;
+  background: var(--print);
+  border: 1.5px solid var(--border-warm);
+  border-radius: 14px;
+}
+.note p { font-size: 1rem; }
+
+/* ---------- Footer ---------- */
+
+.footer {
+  max-width: 1320px;
+  margin: 72px auto 0;
+  padding: 22px var(--gutter) 36px;
+}
+.footer p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-top: 18px;
+  border-top: 1.5px solid rgba(31, 42, 68, 0.14);
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+}
+
+/* ---------- Narrow: one phone at a time ---------- */
+
+@media (max-width: 819.98px) {
+  .phones { position: relative; }
+  .device[data-phone] { width: 100%; }
+  .phones[data-active="rose"] .device[data-phone="anna"],
+  .phones[data-active="anna"] .device[data-phone="rose"] {
+    /* Kept alive and full size so the app inside keeps its state, just out of sight. */
+    position: absolute;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .btn { padding: 0 15px; font-size: 0.9375rem; }
+  .switch-btn { flex: 1; }
+  .switch { display: flex; max-width: 414px; }
+}
+
+@media (min-width: 820px) {
+  :root { --gutter: 32px; }
+  .switch { display: none; }
+  main { padding-top: 32px; }
+  .stage { margin-top: 36px; }
+}
+
+/* ---------- Wide: text column beside the phones, phones stay in view ---------- */
+
+@media (min-width: 1080px) {
+  :root { --gutter: 40px; }
+
+  .fold {
+    display: grid;
+    grid-template-columns: minmax(300px, var(--side-w)) 1fr;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+      "side stage"
+      "tries stage";
+    column-gap: var(--col-gap);
+    align-items: start;
+  }
+  .side { grid-area: side; }
+  .tries { grid-area: tries; margin-top: 44px; }
+  .stage {
+    grid-area: stage;
+    margin-top: 0;
+    position: sticky;
+    top: 24px;
+  }
+  main { padding-top: 24px; }
+
+  .prose {
+    display: grid;
+    grid-template-columns: minmax(300px, var(--side-w)) 1fr;
+    column-gap: var(--col-gap);
+  }
+  .prose-body { margin-top: 2px; }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .screen.is-waiting .placeholder::before { opacity: 0.35; }
+}
