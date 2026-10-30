@@ -236,6 +236,41 @@
     }
   }
 
+  /* ---------- "Show me" steps: open the right screen on the right phone ---------- */
+
+  var pointTimer = null;
+  document.querySelectorAll('[data-go]').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      if (busy) return;
+      var name = btn.getAttribute('data-go');
+      var frame = frames[name];
+      // A fresh load straight onto that screen; the phone's own storage keeps Rose's family.
+      frame.setAttribute('src', 'app' + btn.getAttribute('data-path') + '?phone=' + name);
+      // On a phone-sized screen, switch to that phone.
+      if (narrow.matches) {
+        phones.setAttribute('data-active', name);
+        switchBtns.forEach(function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-show') === name)); });
+      }
+      var device = frame.closest('.device');
+      document.querySelectorAll('.device').forEach(function (d) { d.classList.remove('is-pointed'); });
+      device.classList.add('is-pointed');
+      window.clearTimeout(pointTimer);
+      pointTimer = window.setTimeout(function () { device.classList.remove('is-pointed'); }, 2200);
+      device.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+    });
+  });
+
+  /* ---------- The demo video ---------- */
+
+  var dialog = document.getElementById('video-dialog');
+  var video = document.getElementById('demo-video');
+  document.getElementById('watch-video').addEventListener('click', function () {
+    if (dialog.showModal) dialog.showModal();
+    else dialog.setAttribute('open', '');
+    video.play().catch(function () {});
+  });
+  dialog.addEventListener('close', function () { video.pause(); });
+
   btnLoad.addEventListener('click', function () { run('family'); });
   btnFresh.addEventListener('click', function () { run('fresh'); });
 

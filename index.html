@@ -36,18 +36,42 @@
             <span class="wordmark">Amaranthine</span>
           </p>
           <h1>A few minutes a day with her family’s photos, for a grandparent with memory loss.</h1>
-          <p class="lede">Rose is 78 and forgets more than she used to. Her daughter Anna sets the app up on her own phone with photos, names and a couple of dozen facts. Each day Rose turns four pages of those photos, answers in her own time, and can ask out loud about the people in them. Nothing on her screens keeps score.</p>
+          <p class="lede">Two phones, one family. <strong>Rose</strong> (left) is the grandmother. <strong>Anna</strong> (right) is her daughter, who set the app up. Both are live: tap them like real phones.</p>
+          <button type="button" class="btn btn-video" id="watch-video">
+            <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false"><path d="M6 4.2v11.6a.8.8 0 0 0 1.2.7l9.1-5.8a.8.8 0 0 0 0-1.4L7.2 3.5a.8.8 0 0 0-1.2.7Z" fill="currentColor"/></svg>
+            Watch the 80-second demo
+          </button>
         </header>
 
-        <div class="controls" role="group" aria-labelledby="controls-title" aria-controls="demo">
-          <h2 id="controls-title" class="controls-title">Try it here</h2>
-          <div class="buttons">
-            <button type="button" class="btn btn-primary" id="load-family" disabled>Load Rose’s family</button>
-            <button type="button" class="btn btn-quiet" id="start-fresh" disabled>Start from scratch</button>
-          </div>
-          <p class="hint"><strong>Load Rose’s family</strong> gives you both phones ready to use. <strong>Start from scratch</strong> empties them so you can try Anna’s setup and link Rose’s phone.</p>
+        <section class="tries" aria-labelledby="tries-title">
+          <h2 id="tries-title">Or try it yourself</h2>
+          <ol class="steps">
+            <li>
+              <span class="step-title">Rose’s daily visit</span>
+              Four of her own family photos. Tap any name: whatever she picks, she’s shown who it is, never told she’s wrong.
+              <button type="button" class="btn btn-step" data-go="rose" data-path="/grand/visit">Show me on Rose’s phone</button>
+            </li>
+            <li>
+              <span class="step-title">Ask about her family</span>
+              Tap “Who are my grandchildren?”. The answer is read aloud, and it comes only from what Anna entered.
+              <button type="button" class="btn btn-step" data-go="rose" data-path="/grand/talk">Show me on Rose’s phone</button>
+            </li>
+            <li>
+              <span class="step-title">The family’s side</span>
+              Anna sees everything the app knows about her mother, and can fix or remove any of it.
+              <button type="button" class="btn btn-step" data-go="anna" data-path="/family/facts">Show me on Anna’s phone</button>
+            </li>
+          </ol>
+        </section>
+
+        <div class="controls" role="group" aria-label="Demo controls" aria-controls="demo">
           <p class="status" id="status" role="status" aria-live="polite"><span class="dot" aria-hidden="true"></span><span class="status-text">Getting the phones ready…</span></p>
-          <p class="privacy">It all runs in your browser. Nothing is uploaded, and nothing is saved anywhere but this browser.</p>
+          <p class="privacy">Runs entirely in your browser. Nothing is uploaded.</p>
+          <p class="reset-row">
+            <button type="button" class="link-btn" id="load-family" disabled>Reset Rose’s family</button>
+            <span aria-hidden="true">·</span>
+            <button type="button" class="link-btn" id="start-fresh" disabled>Start from scratch (try the setup)</button>
+          </p>
         </div>
       </div>
 
@@ -100,56 +124,22 @@
         </div>
       </section>
 
-      <section class="tries" aria-labelledby="tries-title">
-        <h2 id="tries-title"><span class="taped"><svg class="tape" viewBox="0 0 88 24" width="88" height="24" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M87.6 0 L85.7 4 L87.6 8 L85.2 12 L87.6 16 L86.2 20 L87.6 24 L0.4 24 L2.3 20 L0.4 16 L2.8 12 L0.4 8 L1.8 4 L0.4 0 Z" fill="#E25C48" opacity="0.75"/><rect x="5" y="7.7" width="78" height="0.8" fill="#fff" opacity="0.18"/><rect x="7" y="15.4" width="74" height="0.8" fill="#fff" opacity="0.13"/></svg>Things</span> to try</h2>
-        <ol class="steps">
-          <li>
-            <span class="where">Rose’s phone</span>
-            Tap “Open today’s pages” and tap one of the three answers. The page that follows looks the same whether the answer was right or wrong: who it is, what they are to her, and a short story.
-          </li>
-          <li>
-            <span class="where">Rose’s phone</span>
-            Go back home, tap “Talk to me”, then “Who are my grandchildren?”. The answer comes only from what Anna entered. If the browser asks for the microphone, you can say no and tap the questions instead.
-          </li>
-          <li>
-            <span class="where">Both phones</span>
-            Ask Rose’s phone something her family never told it, like “What was my first dog’s name?”. It says it will ask the family. On Anna’s phone, open “Questions she asked”, answer it in a sentence, then ask Rose’s phone again.
-          </li>
-          <li>
-            <span class="where">Rose’s phone</span>
-            Tap the small “Family” button on her home screen and enter the PIN 1234. That’s the part of her phone only the family can open. It locks again when you leave.
-          </li>
-          <li>
-            <span class="where">Both phones</span>
-            Press “Start from scratch”. On Anna’s phone, go through setup: Rose’s profile, a family PIN, then the 6-digit link code. On Rose’s phone, choose “This is my phone” and type that code.
-          </li>
-        </ol>
-        <p class="tries-note">Each phone has a faint handle on its right edge. Tap it to open a menu that jumps straight to any screen.</p>
-      </section>
-
     </div>
 
     <section class="prose" aria-labelledby="how-title">
       <h2 id="how-title">How it works</h2>
       <div class="prose-body">
-        <p><strong>The family sets her up once.</strong> On their own phone, someone like Anna adds Rose’s name and photo, picks a family PIN and links Rose’s phone with a six-digit code. Then they answer up to 24 short questions about her: who her people are, where she grew up, the days she remembers. They add photos and name the faces once.</p>
-        <p><strong>The app writes the daily pages from that.</strong> Each page is one of her own photos with a plain question, “Who is this?” or “Where was this taken?”, and three choices drawn only from her own people and places. Four pages make a visit. It takes about three minutes.</p>
-        <p><strong>It never marks her wrong.</strong> Whatever she taps, the next page turns sky blue and tells her who it was and a line or two about them. Afterwards she sees how many memories she revisited, never a score. The app does keep a quiet note of what she remembered, but only to choose which photos come back sooner.</p>
-        <p><strong>The companion answers only from what her family entered.</strong> She can tap “Talk to me” at any time and ask about her family out loud. If the answer isn’t in what they told it, it doesn’t guess. It says “That’s a lovely question. Let’s ask your family.” and saves the question.</p>
-        <p><strong>The family sees what she asked.</strong> Her unanswered questions wait on the family’s phone, with at most one note a day about them. They answer in a sentence, and the next time she asks, the companion knows. Nobody announces it to her.</p>
+        <p><strong>The family sets her up once:</strong> 24 short questions and some photos, about ten minutes.</p>
+        <p><strong>The app turns that into a three-minute daily visit</strong> of her own photos. It never keeps score, and it quietly brings back the faces she’s starting to forget.</p>
+        <p><strong>She can ask about her family any time,</strong> out loud. If the app doesn’t know, it says “Let’s ask your family”, and the question shows up on Anna’s phone.</p>
+        <p class="fine">A prototype: the AI and backend here are simple stand-ins running in your browser. The family is made up, and the photos are licensed stock and public-domain images.</p>
       </div>
     </section>
 
-    <section class="prose" aria-labelledby="status-title">
-      <h2 id="status-title">This is a prototype</h2>
-      <div class="prose-body">
-        <div class="note">
-          <p>The AI and the backend on this page are stand-ins that run in your browser. They follow simple rules over the family’s facts rather than calling a real model or server.</p>
-          <p>The real app is an iPhone app built with React Native and Expo. It is heading to a pilot with three to five families.</p>
-          <p>The photos are licensed stock and public-domain images, and the Whitman family is made up.</p>
-        </div>
-      </div>
-    </section>
+    <dialog class="video-dialog" id="video-dialog" aria-label="Amaranthine demo video">
+      <video id="demo-video" src="assets/amaranthine-demo.mp4" poster="assets/amaranthine-demo-poster.jpg" controls playsinline preload="none"></video>
+      <form method="dialog"><button class="btn btn-quiet" type="submit">Close</button></form>
+    </dialog>
   </main>
 
   <footer class="footer">

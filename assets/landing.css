@@ -569,3 +569,83 @@ figcaption {
   }
   .screen.is-waiting .placeholder::before { opacity: 0.35; }
 }
+
+/* ---------- Simple judge-friendly version ---------- */
+
+.lede strong { font-weight: 600; }
+
+.btn-video {
+  margin-top: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--ink);
+  color: var(--page);
+  border: 0;
+  border-bottom: 3px solid #0E1424;
+}
+.btn-video:hover { background: #2A3757; }
+.btn-video:active { transform: translateY(2px); border-bottom-width: 1px; }
+
+.tries { margin-top: 36px; }
+.tries h2 { font-size: 1.5rem; }
+.steps { margin-top: 14px; }
+.steps li + li { margin-top: 20px; }
+.step-title {
+  display: block;
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.125rem;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.btn-step {
+  display: flex;
+  width: fit-content;
+  margin-top: 10px;
+  min-height: 40px;
+  padding: 8px 14px;
+  font-size: 0.9375rem;
+  background: var(--print);
+  color: var(--ink);
+  border: 1.5px solid var(--border-warm);
+  border-bottom-width: 3px;
+}
+.btn-step:hover { border-color: var(--tomato); }
+.btn-step:active { transform: translateY(1px); }
+
+.controls { margin-top: 30px; }
+.reset-row { margin-top: 10px; font-family: var(--sans); font-size: 0.875rem; color: var(--ink-soft); }
+.reset-row span { margin: 0 6px; }
+.link-btn {
+  background: none;
+  border: 0;
+  padding: 6px 0;
+  font: inherit;
+  color: var(--ink-soft);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.link-btn:hover { color: var(--ink); }
+.link-btn[aria-disabled="true"], .link-btn:disabled { opacity: 0.5; cursor: default; }
+
+/* The phone a step just opened gets a brief tomato outline, so the eye knows where to look. */
+.device.is-pointed .phone { box-shadow: 0 0 0 5px var(--tomato), 0 18px 40px rgba(31, 42, 68, 0.25); transition: box-shadow 200ms ease-out; }
+
+.fine { font-size: 0.95rem; color: var(--ink-soft); font-style: italic; }
+
+.video-dialog {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  max-width: min(96vw, 1280px);
+  width: 100%;
+}
+.video-dialog::backdrop { background: rgba(22, 27, 38, 0.82); }
+.video-dialog video { display: block; width: 100%; height: auto; border-radius: 12px; background: #000; }
+.video-dialog form { margin-top: 12px; text-align: right; }
+
+@media (prefers-reduced-motion: reduce) {
+  .device.is-pointed .phone { transition: none; }
+}
